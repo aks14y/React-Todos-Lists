@@ -19,7 +19,7 @@ function TodoPostForm({ submit, type }) {
         id="title"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-      />
+      />  
       <br />
       {type === "post" && (
         <div className="form">
