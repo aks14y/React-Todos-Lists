@@ -1,0 +1,11 @@
+.container-todo {
+  display: flex;
+  padding: 10px 10px;
+  align-items: center;
+}
+
+.container-todo li {
+  list-style-type: none;
+  padding: 0px 10px;
+  color: red;
+}
