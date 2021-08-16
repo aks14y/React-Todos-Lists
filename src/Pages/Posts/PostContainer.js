@@ -30,11 +30,12 @@ function PostContainer() {
         console.log(res);
         setPosts(res.data);
         setIsPending(false);
+        setError(null);
       })
       .catch((err) => {
         console.log(err.message);
         setIsPending(false);
-        setError(err.message);
+        setError("There is an error");
       });
     },1000)
   }, []);
