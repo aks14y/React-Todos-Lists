@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoStyle.scss";
+import "./TodoStyle.css";
 
 function ListItem({ data, removeItem, toggleComplete }) {
   function handleRemoveClick() {

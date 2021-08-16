@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Components/Style.scss";
+import "../../Components/Style.css";
 
 function ListItem({ data, removeItem }) {
   function handleRemoveClick() {
