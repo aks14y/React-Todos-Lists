@@ -32,8 +32,9 @@ function PostContainer() {
         setIsPending(false);
       })
       .catch((err) => {
-        console.log(err);
-        setError("Error retrieving data");
+        console.log(err.message);
+        setIsPending(false);
+        setError(err.message);
       });
     },1000)
   }, []);
@@ -57,6 +58,7 @@ function PostContainer() {
   return (
     <div>
       <TodoPostForm submit={addNewPost} type="post" />
+      {/* {error && <div>{error}</div>} */}
       {isPending &&  <div>Loading...</div>}
       {posts.length ? (
         <div>
