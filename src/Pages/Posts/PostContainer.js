@@ -8,6 +8,7 @@ const LOCAL_STORAGE_KEY = "react-todo-list-posts";
 function PostContainer() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
+  const [isPending, setIsPending]= useState(true);
 
   useEffect(() => {
     const storagePosts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -22,16 +23,19 @@ function PostContainer() {
   }, [posts]);
 
   useEffect(() => {
-    axios
+    setTimeout(()=> {
+      axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((res) => {
         console.log(res);
         setPosts(res.data);
+        setIsPending(false);
       })
       .catch((err) => {
         console.log(err);
         setError("Error retrieving data");
       });
+    },1000)
   }, []);
 
   const addNewPost = (post, desc) => {
@@ -53,6 +57,7 @@ function PostContainer() {
   return (
     <div>
       <TodoPostForm submit={addNewPost} type="post" />
+      {isPending &&  <div>Loading...</div>}
       {posts.length ? (
         <div>
           <PostList todos={posts} removeItem={removeItem} />
