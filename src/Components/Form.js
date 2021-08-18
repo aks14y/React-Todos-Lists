@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Style.css";
+import "./Style.scss";
 
 function TodoPostForm({ submit, type }) {
   const [input, setInput] = useState("");
